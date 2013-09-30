@@ -8,10 +8,7 @@ namespace TicTacToe
 {
     class Program
     {
-       
-
         static void Main(string[] args)
-            hgjgvu
         {
             Console.WindowHeight = 15;
             Console.WindowWidth = 15;
