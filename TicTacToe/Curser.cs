@@ -82,9 +82,7 @@ namespace TicTacToe
                     Console.SetCursorPosition(i, j);
                     Console.Write("x");
                 }
-
             }
-
         }
 
         // Raderar pekare
@@ -99,8 +97,5 @@ namespace TicTacToe
                 }
             }
         }
-
-
-
     }
 }
