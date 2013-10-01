@@ -12,15 +12,24 @@ namespace TicTacToe
         private Board board;
         private Render render;
         private bool turn { get; set; }
+<<<<<<< HEAD
+        
+=======
         private bool running { get; set;}
 
+>>>>>>> fb628ba7ce1bb1772da524c1b85e8b3d22316bef
         public Input()
         {
+               
             board = new Board();
             cursor = new Cursor();
             render = new Render();
             turn = true;
+<<<<<<< HEAD
+            
+=======
             running = true;
+>>>>>>> fb628ba7ce1bb1772da524c1b85e8b3d22316bef
 
         }
 
@@ -41,6 +50,7 @@ namespace TicTacToe
                         cursor.MoveRight();
                     if (key.Key == ConsoleKey.Spacebar)
                     {
+<<<<<<< HEAD
 
                         if (board.GetValue(cursor.mXpos, cursor.mYpos) == 0)
                         {
@@ -54,6 +64,19 @@ namespace TicTacToe
                                 board.setValue(2, cursor.mXpos, cursor.mYpos);
                                 turn = !turn;
                             }
+=======
+                        if (turn)
+                        {
+                            board.setValue(1, cursor.mXpos, cursor.mYpos);
+                            turn = !turn;
+                            cursor.mChar = 'O';
+                        }
+                        else
+                        {
+                            board.setValue(2, cursor.mXpos, cursor.mYpos);
+                            turn = !turn;
+                            cursor.mChar = 'X';
+>>>>>>> 38993d60c86510d552d23359033aca302687c33a
                         }
 
                     }
