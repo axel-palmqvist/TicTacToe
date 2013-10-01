@@ -33,9 +33,8 @@ namespace TicTacToe
         }
         private void Fill(int x, int y, char c)
         {
-
-                    Console.SetCursorPosition(x, y);
-                    Console.Write(c);
+            Console.SetCursorPosition(x, y);
+            Console.Write(c);
         }
 
     }

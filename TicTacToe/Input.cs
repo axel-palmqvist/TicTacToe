@@ -12,6 +12,7 @@ namespace TicTacToe
         private Board board;
         private Render render;
         private bool turn { get; set; }
+        private bool running { get; set;}
 
         public Input()
         {
@@ -19,6 +20,7 @@ namespace TicTacToe
             cursor = new Cursor();
             render = new Render();
             turn = true;
+            running = true;
 
         }
 
@@ -54,6 +56,18 @@ namespace TicTacToe
 
                 }
 
+            }
+
+            for (int i = 1; i <= 2; i++)
+            {
+                if (board.GetValue(1, 1) == i && board.GetValue(6, 1) == i && board.GetValue(11, 1) == i)
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(0,14);
+                    Console.WriteLine("Tre i rad");
+                }
+
+                
             }
 
             render.draw(board);
