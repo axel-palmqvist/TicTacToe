@@ -12,13 +12,15 @@ namespace TicTacToe
         private Board board;
         private Render render;
         private bool turn { get; set; }
-
+        
         public Input()
         {
+               
             board = new Board();
             cursor = new Cursor();
             render = new Render();
             turn = true;
+            
 
         }
 
@@ -44,11 +46,13 @@ namespace TicTacToe
                         {
                             board.setValue(1, cursor.mXpos, cursor.mYpos);
                             turn = !turn;
+                            cursor.mChar = 'O';
                         }
                         else
                         {
                             board.setValue(2, cursor.mXpos, cursor.mYpos);
                             turn = !turn;
+                            cursor.mChar = 'X';
                         }
                     }
 

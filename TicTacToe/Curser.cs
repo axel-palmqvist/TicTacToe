@@ -8,13 +8,14 @@ namespace TicTacToe
     class Cursor
     {
         // Medlemsvariabler
-        private char mChar;
+        public char mChar { set; get;}
         public int mYpos { set; get; }
         public int mXpos { set; get; }
 
         // Konstukter 
         public Cursor()
         {
+            mChar = 'X';
             mYpos = 1;
             mXpos = 1;
 
@@ -74,8 +75,8 @@ namespace TicTacToe
         // Skriver ut pekare
         public void PrintPointer()
         {
-            Console.SetCursorPosition(mXpos, mYpos);
-            Console.Write("x");
+                Console.SetCursorPosition(mXpos, mYpos);
+                Console.Write(mChar);
         }
 
         // Raderar pekare
