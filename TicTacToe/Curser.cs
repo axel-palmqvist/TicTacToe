@@ -15,8 +15,8 @@ namespace TicTacToe
         // Konstukter 
         public Cursor()
         {
-            mYpos = 0;
-            mXpos = 0;
+            mYpos = 1;
+            mXpos = 1;
 
 
 
@@ -30,10 +30,10 @@ namespace TicTacToe
         // Flyttar pekaren ett steg upp om den inte redan är längst upp
         public void MoveUp()
         {
-            if (mYpos > 0)
+            if (mYpos > 1)
             {
                 RemovePointer();
-                mYpos = mYpos - 5;
+                mYpos = mYpos - 3;
                 PrintPointer();
             }
         }
@@ -41,10 +41,10 @@ namespace TicTacToe
         // Flyttar pekaren ett steg ner om den inte redan är längst ner
         public void MoveDown()
         {
-            if (mYpos + 5 < Console.WindowHeight)
+            if (mYpos + 5 < Console.WindowHeight - 5)
             {
                 RemovePointer();
-                mYpos = mYpos + 5;
+                mYpos = mYpos + 3;
                 PrintPointer();
             }
         }
@@ -52,7 +52,7 @@ namespace TicTacToe
         // Flyttar pekaren ett steg åt vänster om den inte redan är längst åt vänster
         public void MoveLeft()
         {
-            if (mXpos > 0)
+            if (mXpos > 1)
             {
                 RemovePointer();
                 mXpos = mXpos - 5;
@@ -63,7 +63,7 @@ namespace TicTacToe
         // Flyttar pekaren ett steg åt höger om den inte redan är längst åt höger
         public void MoveRight()
         {
-            if (mXpos + 5 < Console.WindowWidth)
+            if (mXpos + 2 < Console.WindowWidth - 4)
             {
                 RemovePointer();
                 mXpos = mXpos + 5;
@@ -74,30 +74,22 @@ namespace TicTacToe
         // Skriver ut pekare
         public void PrintPointer()
         {
-            // Console.SetCursorPosition(Xpos, Ypos);
-            for (int i = mXpos; i < mXpos + 5; i++)
-            {
-                for (int j = mYpos; j < mYpos + 5; j++)
-                {
-                    Console.SetCursorPosition(i, j);
+                for (int j = mYpos; j < mYpos + 1; j++)
+                    Console.SetCursorPosition(mXpos, mYpos);
                     Console.Write("x");
-                }
-
-            }
-
         }
 
         // Raderar pekare
         public void RemovePointer()
         {
-            for (int i = mXpos; i < mXpos + 5; i++)
-            {
-                for (int j = mYpos; j < mYpos + 5; j++)
+           // for (int i = mXpos; i < mXpos + 1; i++)
+           // {
+                for (int j = mYpos; j < mYpos + 1; j++)
                 {
-                    Console.SetCursorPosition(i, j);
+                    Console.SetCursorPosition(mXpos, mYpos);
                     Console.Write(' ');
                 }
-            }
+          //  }
         }
 
 
