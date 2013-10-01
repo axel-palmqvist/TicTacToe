@@ -4,62 +4,73 @@
 namespace TicTacToe
 {
 
+<<<<<<< HEAD
+    public class Board
+    {
+
+        private Pointer[,] p = new Pointer[Console.WindowHeight, Console.WindowWidth];
+=======
         public class Board
         {
 
             private Pointer[,] p = new Pointer[Console.WindowHeight, Console.WindowWidth];
+>>>>>>> 38993d60c86510d552d23359033aca302687c33a
 
 
-            public Board()
+        public Board()
+        {
+            FillBoard();
+            BoardGraphics();
+        }
+
+        public void BoardGraphics()
+        {
+            for (int x = 0; x < 3; x++)
             {
-                FillBoard();
-                BoardGraphics();
-            }
-
-            public void BoardGraphics()
-            {
-                for (int x = 0; x < 3; x++)
+                for (int y = 0; y < 3; y++)
                 {
-                    for (int y = 0; y < 3; y++)
-                    {
-                        draw(x * 5, y * 3);
-                    }
+                    draw(x * 5, y * 3);
                 }
-            }
-            public void draw(int x, int y)
-            {
-                Console.SetCursorPosition(x, y);
-                Console.Write("┌───┐");
-                Console.SetCursorPosition(x, y + 1);
-                Console.Write("│   │");
-                Console.SetCursorPosition(x, y + 2);
-                Console.Write("└───┘");
-            }
-            public void FillBoard()
-            {
-                for (int x = 0; x < Console.WindowWidth; x++)
-                {
-                    for (int y = 0; y < Console.WindowHeight; y++)
-                    {
-                        p[x, y] = new Pointer();
-                    }
-
-                }
-            }
-
-
-            public void setValue(int value, int x, int y)
-            {
-                p[x, y].setValue(value);
-            }
-
-            public int GetValue(int x, int y)
-            {
-                return p[x, y].GetValue();
             }
         }
+        public void draw(int x, int y)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write("┌───┐");
+            Console.SetCursorPosition(x, y + 1);
+            Console.Write("│   │");
+            Console.SetCursorPosition(x, y + 2);
+            Console.Write("└───┘");
+        }
+        public void FillBoard()
+        {
+            for (int x = 0; x < Console.WindowWidth; x++)
+            {
+                for (int y = 0; y < Console.WindowHeight; y++)
+                {
+                    p[x, y] = new Pointer();
+                }
+
+            }
+        }
+
+
+        public void setValue(int value, int x, int y)
+        {
+            p[x, y].setValue(value);
+        }
+<<<<<<< HEAD
+
+        public int GetValue(int x, int y)
+        {
+            return p[x, y].GetValue();
+        }
+    }
+}
+=======
         
 }
 
 
+>>>>>>> 38993d60c86510d552d23359033aca302687c33a
     
