@@ -9,8 +9,8 @@ namespace TicTacToe
     {
         // Medlemsvariabler
         private char mChar;
-        private int mYpos;
-        private int mXpos;
+        public int mYpos { set; get; }
+        public int mXpos { set; get; }
 
         // Konstukter 
         public Cursor()
@@ -21,59 +21,11 @@ namespace TicTacToe
 
 
             // Sätter ut pekaren på en startposition
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.SetCursorPosition(Xpos, Ypos);
-            //Console.Write(mChar);
+            //Console.ForegroundColor = ConsoleColor.Green;
+            Console.SetCursorPosition(mXpos, mYpos);
             PrintPointer();
         }
 
-        // Property för char
-        public char Char
-        {
-            get
-            {
-                return mChar;
-            }
-
-            set
-            {
-                mChar = value;
-            }
-        }
-
-        // Property för mXpos
-        public int Xpos
-        {
-            get
-            {
-                return mXpos;
-            }
-            // kontrollera om den nya positionen är utanför consolen
-            set
-            {
-                if (value >= 0 && value <= Console.BufferWidth)
-                {
-                    mXpos = value;
-                }
-            }
-        }
-
-        // Property för mYpos
-        public int Ypos
-        {
-            get
-            {
-                return mYpos;
-            }
-            // kontrollera om den nya positionen är utanför consolen
-            set
-            {
-                if (value >= 0 && value <= Console.BufferHeight)
-                {
-                    mYpos = value;
-                }
-            }
-        }
 
         // Flyttar pekaren ett steg upp om den inte redan är längst upp
         public void MoveUp()
@@ -123,9 +75,9 @@ namespace TicTacToe
         public void PrintPointer()
         {
             // Console.SetCursorPosition(Xpos, Ypos);
-            for (int i = Xpos; i < Xpos + 5; i++)
+            for (int i = mXpos; i < mXpos + 5; i++)
             {
-                for (int j = Ypos; j < Ypos + 5; j++)
+                for (int j = mYpos; j < mYpos + 5; j++)
                 {
                     Console.SetCursorPosition(i, j);
                     Console.Write("x");
@@ -138,14 +90,13 @@ namespace TicTacToe
         // Raderar pekare
         public void RemovePointer()
         {
-            for (int i = Xpos; i < Xpos + 5; i++)
+            for (int i = mXpos; i < mXpos + 5; i++)
             {
-                for (int j = Ypos; j < Ypos + 5; j++)
+                for (int j = mYpos; j < mYpos + 5; j++)
                 {
                     Console.SetCursorPosition(i, j);
                     Console.Write(' ');
                 }
-
             }
         }
 

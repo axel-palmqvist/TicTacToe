@@ -9,11 +9,16 @@ namespace TicTacToe
     class Input
     {
         private Cursor cursor;
-        //private Board board;
+        private Board board;
+        private Render render;
+        private bool turn { get; set; }
+
         public Input()
         {
-            //board = new Board();
+            board = new Board();
             cursor = new Cursor();
+            render = new Render();
+            turn = true;
 
         }
 
@@ -32,16 +37,26 @@ namespace TicTacToe
                     cursor.MoveRight();
                 if (key.Key == ConsoleKey.Spacebar)
                 {
-                    /*
-                    if (board.GetValue(cursor.Xpos, cursor.Ypos) == 0)
+
+                    if (board.GetValue(cursor.mXpos, cursor.mYpos) == 0)
                     {
-              
+                        if (turn)
+                        {
+                            board.setValue(1, cursor.mXpos, cursor.mYpos);
+                            turn = !turn;
+                        }
+                        else
+                        {
+                            board.setValue(2, cursor.mXpos, cursor.mYpos);
+                            turn = !turn;
+                        }
                     }
-                     */
+
                 }
 
             }
 
+            render.draw(board);
         }
     }
 }
