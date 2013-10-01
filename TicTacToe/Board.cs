@@ -6,7 +6,13 @@ namespace TicTacToe
 
         public class Board
         {
+
             private Pointer[,] p = new Pointer[Console.WindowHeight, Console.WindowWidth];
+
+            FillBoard();
+            BoardGraphics();
+        
+
 
             public Board()
             {
@@ -55,5 +61,6 @@ namespace TicTacToe
             {
                 return p[x, y].GetValue();
             }
+        }
         }
     }
