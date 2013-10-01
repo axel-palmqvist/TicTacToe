@@ -10,9 +10,6 @@ namespace TicTacToe
     class Pointer
     {
         public int state;
-        //public int x { get; set; }
-
-
 
         public Pointer()
         {

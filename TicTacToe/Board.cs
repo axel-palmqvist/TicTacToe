@@ -3,18 +3,12 @@
 
 namespace TicTacToe
 {
+    
 
-<<<<<<< HEAD
-    public class Board
-    {
-
-        private Pointer[,] p = new Pointer[Console.WindowHeight, Console.WindowWidth];
-=======
         public class Board
         {
 
             private Pointer[,] p = new Pointer[Console.WindowHeight, Console.WindowWidth];
->>>>>>> 38993d60c86510d552d23359033aca302687c33a
 
 
         public Board()
@@ -59,7 +53,7 @@ namespace TicTacToe
         {
             p[x, y].setValue(value);
         }
-<<<<<<< HEAD
+
 
         public int GetValue(int x, int y)
         {
@@ -67,10 +61,3 @@ namespace TicTacToe
         }
     }
 }
-=======
-        
-}
-
-
->>>>>>> 38993d60c86510d552d23359033aca302687c33a
-    

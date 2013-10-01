@@ -13,7 +13,6 @@ namespace TicTacToe
         private Render render;
         private bool turn { get; set; }
 
-        
         private bool running { get; set;}
 
 
@@ -29,6 +28,9 @@ namespace TicTacToe
 
             running = true;
 
+
+
+            running = true;
 
         }
         private void winCalc()
@@ -89,8 +91,7 @@ namespace TicTacToe
 
         public void Move()
         {
-            if (running)
-            {
+            
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey(true);
@@ -106,17 +107,22 @@ namespace TicTacToe
                     {
 
 
+
                         if (board.GetValue(cursor.mXpos, cursor.mYpos) == 0)
                         {
+                         
                             if (turn)
                             {
                                 board.setValue(1, cursor.mXpos, cursor.mYpos);
                                 turn = !turn;
+                                cursor.mChar = 'O';
                             }
                             else
                             {
                                 board.setValue(2, cursor.mXpos, cursor.mYpos);
                                 turn = !turn;
+                                cursor.mChar = 'X';
+
                             }
 
                         if (turn)
@@ -137,23 +143,22 @@ namespace TicTacToe
                 render.draw(board);
                 winCalc();
 
-                }
-
-                for (int i = 1; i <= 2; i++)
-                {
-                    if (board.GetValue(1, 1) == i && board.GetValue(6, 1) == i && board.GetValue(11, 1) == i)
+                    for (int i = 1; i <= 2; i++)
                     {
-                        Console.Clear();
-                        Console.SetCursorPosition(0, 14);
-                        Console.WriteLine("Tre i rad");
-                        running = false;
+                        if (board.GetValue(1, 1) == i && board.GetValue(6, 1) == i && board.GetValue(11, 1) == i)
+                        {
+                            Console.Clear();
+                            Console.SetCursorPosition(0, 14);
+                            Console.WriteLine("Tre i rad");
+                            running = false;
+                        }
+
+
                     }
 
-
+                    render.draw(board);
                 }
-
-                render.draw(board);
             }
         }
     }
-}
+    
