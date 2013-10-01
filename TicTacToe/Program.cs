@@ -11,8 +11,8 @@ namespace TicTacToe
        
 
         static void Main(string[] args)
-            hgjgvu
         {
+            
             Console.WindowHeight = 15;
             Console.WindowWidth = 15;
             Input input = new Input(); 
