@@ -9,9 +9,7 @@ namespace TicTacToe
 
             private Pointer[,] p = new Pointer[Console.WindowHeight, Console.WindowWidth];
 
-            FillBoard();
-            BoardGraphics();
-        
+            
 
 
             public Board()
@@ -63,4 +61,4 @@ namespace TicTacToe
             }
         }
         }
-    }
+    
