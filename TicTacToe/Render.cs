@@ -21,28 +21,22 @@ namespace TicTacToe
                 {
                     if (aBoard.GetValue(x, y) == 1)
                     {
-                        for (int i = x; i < x + 5; i++)
-                        {
-                            for (int j = y; j < y + 5; j++)
-                            {
-                                Console.SetCursorPosition(i, j);
-                                Console.Write("X");
-                            }
-                        }
+                        Fill(x,y,'X');
                     }
                     else if (aBoard.GetValue(x, y) == 2)
                     {
-                        for (int i = x; i < x + 5; i++)
-                        {
-                            for (int j = y; j < y + 5; j++)
-                            {
-                                Console.SetCursorPosition(i, j);
-                                Console.Write("O");
-                            }
-                        }
+                        Fill(x, y, 'O');   
                     }
                 }
             }
+
         }
+        private void Fill(int x, int y, char c)
+        {
+
+                    Console.SetCursorPosition(x, y);
+                    Console.Write(c);
+        }
+
     }
 }
