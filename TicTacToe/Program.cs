@@ -12,10 +12,12 @@ namespace TicTacToe
         {
             Console.WindowHeight = 15;
             Console.WindowWidth = 15;
-            Input input = new Input(); 
+            Input input = new Input();
             while (true)
             {
                 input.Move();
+                Board aBoard = new Board();
+                aBoard.draw(0, 0);
             }
         }
     }
