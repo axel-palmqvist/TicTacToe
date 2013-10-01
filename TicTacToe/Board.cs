@@ -9,6 +9,7 @@ namespace TicTacToe
         public Board()
         {
             FillBoard();
+            BoardGraphics();
         }
 
         public void BoardGraphics()
