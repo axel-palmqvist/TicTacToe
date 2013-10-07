@@ -11,27 +11,37 @@ namespace TicTacToe
         private Cursor cursor;
         private Board board;
         private Render render;
+        private Bot bot;
         private bool turn { get; set; }
-
         private bool running { get; set;}
+        private int botMove { get; set; }
+
+        public bool mbot { get; set; } 
 
 
         public Input()
         {
-               
+            Start();
+        }
+        private void Start()
+        {
+            Console.WriteLine("Vill du spela\nmot bot? J/N");
+            string answer = Console.ReadLine();
+            if (answer == "j")
+            {
+                mbot = true;
+            }
+            else
+            {
+                mbot = false;
+            }
             board = new Board();
             cursor = new Cursor();
             render = new Render();
+            bot = new Bot();
             turn = true;
-
-            
-
             running = true;
-
-
-
-            running = true;
-
+            botMove = 1;
         }
         private void winCalc()
         {
@@ -85,9 +95,8 @@ namespace TicTacToe
                     Console.SetCursorPosition(0, 14);
                     Console.WriteLine("Tre i rad");
                 }
-
             }
-            }
+        }
 
         public void Move()
         {
@@ -105,60 +114,38 @@ namespace TicTacToe
                         cursor.MoveRight();
                     if (key.Key == ConsoleKey.Spacebar)
                     {
-
-
-
                         if (board.GetValue(cursor.mXpos, cursor.mYpos) == 0)
                         {
-                         
+
                             if (turn)
                             {
                                 board.setValue(1, cursor.mXpos, cursor.mYpos);
                                 turn = !turn;
                                 cursor.mChar = 'O';
+                                if (mbot)
+                                {
+                                    bot.Evaluate(board,botMove);
+                                    board.setValue(2, bot.x, bot.y);
+
+                                    turn = !turn;
+                                    cursor.mChar = 'X';
+                                    botMove = 2;
+                                }
                             }
                             else
-                            {
+                            {   
                                 board.setValue(2, cursor.mXpos, cursor.mYpos);
                                 turn = !turn;
                                 cursor.mChar = 'X';
-
+                                botMove = 2;
                             }
 
-                        if (turn)
-                        {
-                            board.setValue(1, cursor.mXpos, cursor.mYpos);
-                            turn = !turn;
-                            cursor.mChar = 'O';
                         }
-                        else
-                        {
-                            board.setValue(2, cursor.mXpos, cursor.mYpos);
-                            turn = !turn;
-                            cursor.mChar = 'X';
-                        }
-
                     }
-                }
-                render.draw(board);
-                winCalc();
-
-                    for (int i = 1; i <= 2; i++)
-                    {
-                        if (board.GetValue(1, 1) == i && board.GetValue(6, 1) == i && board.GetValue(11, 1) == i)
-                        {
-                            Console.Clear();
-                            Console.SetCursorPosition(0, 14);
-                            Console.WriteLine("Tre i rad");
-                            running = false;
-                        }
-
-
-                    }
-
                     render.draw(board);
+                    winCalc();
                 }
-            }
         }
     }
+}
     
